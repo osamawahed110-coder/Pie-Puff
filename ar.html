@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>باي آند باف لاونج – قائمة الطعام</title>
+  <meta name="description" content="استكشف قائمة باي آند باف لاونج – فطائر طازجة، بف ذهبي، مشروبات مميزة، وحلويات رائعة." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    [dir="rtl"] body { font-family: 'Cairo', sans-serif; }
+    [dir="rtl"] .hero-headline { font-family: 'Cairo', sans-serif; font-weight: 900; }
+    [dir="rtl"] .section-title { font-family: 'Cairo', sans-serif; font-weight: 900; }
+    [dir="rtl"] .featured-name { font-family: 'Cairo', sans-serif; font-weight: 800; }
+    [dir="rtl"] .footer-tagline { font-family: 'Cairo', sans-serif; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<div id="loading">
+  <img src="images/logo.jpg" alt="باي آند باف" class="loader-logo" />
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <p class="loader-text">جاري تحضير القائمة…</p>
+</div>
+
+<canvas id="particles-canvas"></canvas>
+
+<div class="floating-controls">
+  <a href="index.html" class="ctrl-btn" title="English">
+    <svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+    <span>English</span>
+  </a>
+  <button id="theme-btn" class="ctrl-btn" onclick="toggleTheme()" title="تغيير المظهر"></button>
+</div>
+
+<section class="hero" id="home">
+  <div class="logo-wrap">
+    <img src="images/logo.jpg" alt="شعار باي آند باف لاونج" class="logo-img" id="main-logo" />
+  </div>
+  <p class="hero-tagline">أهلاً بك في</p>
+  <h1 class="hero-headline">باي آند باف لاونج</h1>
+  <p class="hero-sub">طازج من الفرن &middot; ذهبي ومقرمش &middot; مصنوع بحب</p>
+  <div class="scroll-hint">
+    <span>استكشف القائمة</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<nav class="cat-nav" id="cat-nav">
+  <a href="#pies"     class="cat-btn active" id="nav-pies">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12h10V2zm0 0c5.52 0 10 4.48 10 10h-10V2zM2.05 13c.23 4.04 3.12 7.32 6.95 7.93V13H2.05zm8.95 0v7.93C15.72 20.1 19 16.95 19.17 13H11z"/></svg>
+    الفطائر
+  </a>
+  <a href="#puffs"    class="cat-btn" id="nav-puffs">
+    <svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-5.97-15.03-5.97-15.03 0h15.03zM1.02 17h15v2h-15z"/></svg>
+    البف
+  </a>
+  <a href="#drinks"   class="cat-btn" id="nav-drinks">
+    <svg viewBox="0 0 24 24"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg>
+    المشروبات
+  </a>
+  <a href="#desserts" class="cat-btn" id="nav-desserts">
+    <svg viewBox="0 0 24 24"><path d="M18.5 3c-1.61 0-3.068.864-3.975 2.169C13.713 4.089 12.404 3.5 11 3.5 8.51 3.5 6.5 5.51 6.5 8c0 .73.19 1.42.51 2.02C4.72 10.2 3 11.97 3 14.17 3 16.83 5.17 19 7.83 19H19c2.21 0 4-1.79 4-4 0-1.82-1.22-3.36-2.88-3.83C20.34 10.5 21 9.34 21 8c0-2.76-1.12-5-2.5-5z"/></svg>
+    الحلويات
+  </a>
+</nav>
+
+<div class="featured-banner" id="featured">
+  <span class="chef-badge">خيار الشيف</span>
+  <div class="featured-img-wrap">
+    <img src="images/meat_pie_1783824576250.png" alt="فطيرة اللحم المميزة" class="featured-img" />
+  </div>
+  <div class="featured-content">
+    <span class="featured-tag">الأكثر طلباً</span>
+    <h2 class="featured-name">فطيرة اللحم المميزة</h2>
+    <p class="featured-desc">جوهرة قائمتنا – لحم بقري فاخر مطهو ببطء مع الأعشاب العطرية، محاط بعجينة محشوة ذهبية هشة. كل قضمة رحلة من النكهة والدفء.</p>
+    <div class="featured-price">٨٩ جنيه</div>
+  </div>
+</div>
+
+<!-- الفطائر -->
+<div id="pies"></div>
+<div class="menu-section">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12h10V2zm0 0c5.52 0 10 4.48 10 10h-10V2zM2.05 13c.23 4.04 3.12 7.32 6.95 7.93V13H2.05zm8.95 0v7.93C15.72 20.1 19 16.95 19.17 13H11z"/></svg></div>
+    <h2 class="section-title">فطائرنا الشهيرة</h2>
+    <div class="section-divider"><div class="section-divider-dot"></div></div>
+  </div>
+  <div class="cards-grid">
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/meat_pie_1783824576250.png" alt="فطيرة اللحم الكلاسيكية" class="card-img" loading="lazy"/><div class="card-img-overlay"></div><span class="badge badge-popular">الأشهر</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(٢٨٤)</span></div><div class="card-name">فطيرة اللحم الكلاسيكية</div><div class="card-desc">لحم بقري متبل مطهو ببطء ملفوف في عجينة هشة بالزبدة. كلاسيكية لا تقاوم.</div><div class="card-footer"><div class="card-price">٨٩ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/chicken_pie_1783824597625.png" alt="فطيرة الدجاج الكريمي" class="card-img" loading="lazy"/><div class="card-img-overlay"></div><span class="badge badge-new">جديد</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(١٩٦)</span></div><div class="card-name">فطيرة الدجاج الكريمي</div><div class="card-desc">دجاج طري في صلصة كريمية مخملية مع الفطر، تحت غطاء عجينة ذهبية.</div><div class="card-footer"><div class="card-price">٧٩ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/veggie_puff_1783824617665.png" alt="فطيرة الخضار" class="card-img" loading="lazy"/><div class="card-img-overlay"></div><span class="badge badge-veg">نباتي</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(١٤٣)</span></div><div class="card-name">فطيرة حديقة الخضار</div><div class="card-desc">خضروات موسمية مشوية وبصل مكرمل وأعشاب في عجينة زيت زيتون مقرمشة.</div><div class="card-footer"><div class="card-price">٦٥ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/meat_pie_1783824576250.png" alt="فطيرة الضأن الحارة" class="card-img" loading="lazy" style="filter:hue-rotate(15deg) brightness(0.85) saturate(1.3)"/><div class="card-img-overlay"></div><span class="badge badge-hot">حار</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(٩٧)</span></div><div class="card-name">فطيرة الضأن الحارة</div><div class="card-desc">ضأن مفروم وهريسة وكمون وفلفل محمر في عجينة وصفة تراثية.</div><div class="card-footer"><div class="card-price">٩٩ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/chicken_pie_1783824597625.png" alt="فطيرة الديك الرومي والزعتر" class="card-img" loading="lazy" style="filter:hue-rotate(-10deg) saturate(1.2)"/><div class="card-img-overlay"></div></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(٦٢)</span></div><div class="card-name">فطيرة الديك الرومي والزعتر</div><div class="card-desc">ديك رومي مشوي ببطء مع كريمة الزعتر والطماطم المجففة في عجينة بالزبدة.</div><div class="card-footer"><div class="card-price">٩٥ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/meat_pie_1783824576250.png" alt="فطيرة الكفتة المصرية" class="card-img" loading="lazy" style="filter:brightness(0.75) saturate(1.4)"/><div class="card-img-overlay"></div><span class="badge badge-popular">محبوبة</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(٢٢٨)</span></div><div class="card-name">فطيرة الكفتة المصرية</div><div class="card-desc">كفتة بيتية مع البصل والبقدونس ورذاذ الطحينة مخبوزة داخل عجينة بالسمسم.</div><div class="card-footer"><div class="card-price">٨٥ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-separator"></div>
+
+<!-- البف -->
+<div id="puffs"></div>
+<div class="menu-section">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-5.97-15.03-5.97-15.03 0h15.03zM1.02 17h15v2h-15z"/></svg></div>
+    <h2 class="section-title">البف الذهبي</h2>
+    <div class="section-divider"><div class="section-divider-dot"></div></div>
+  </div>
+  <div class="cards-grid">
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/cheese_puff_1783824583928.png" alt="بف الجبنة والسبانخ" class="card-img" loading="lazy"/><div class="card-img-overlay"></div><span class="badge badge-popular">الأكثر مبيعاً</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(٣١٢)</span></div><div class="card-name">بف الجبنة والسبانخ</div><div class="card-desc">طبقات من الفيلو المقرمش مع حشوة سخية من الريكوتا والسبانخ ورشة جوزة الطيب.</div><div class="card-footer"><div class="card-price">٥٥ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/veggie_puff_1783824617665.png" alt="بف الفطر والكمأة" class="card-img" loading="lazy"/><div class="card-img-overlay"></div><span class="badge badge-new">جديد</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(٧٨)</span></div><div class="card-name">بف الفطر والكمأة</div><div class="card-desc">فطر بري مع زيت الكمأة ملفوف في عجينة بف مقرمشة بشكل لا يصدق.</div><div class="card-footer"><div class="card-price">٦٩ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/cheese_puff_1783824583928.png" alt="بف الدجاج الحار" class="card-img" loading="lazy" style="filter:hue-rotate(20deg) saturate(1.3)"/><div class="card-img-overlay"></div><span class="badge badge-hot">حار</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(١٤٥)</span></div><div class="card-name">بف الدجاج الحار</div><div class="card-desc">دجاج متبل مع الهالابينيو والشيدر ملفوف في قشرة ذهبية بالزبدة.</div><div class="card-footer"><div class="card-price">٥٩ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/veggie_puff_1783824617665.png" alt="بف التونة والزيتون" class="card-img" loading="lazy" style="filter:hue-rotate(-20deg)"/><div class="card-img-overlay"></div></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(٩٣)</span></div><div class="card-name">بف التونة والزيتون</div><div class="card-desc">تونة على الطريقة المتوسطية مع زيتون كالاماتا والكبر وقشر الليمون.</div><div class="card-footer"><div class="card-price">٦٠ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/cheese_puff_1783824583928.png" alt="رول السجق الكلاسيكي" class="card-img" loading="lazy" style="filter:brightness(0.85) saturate(1.5)"/><div class="card-img-overlay"></div><span class="badge badge-popular">مفضل</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(١٨٧)</span></div><div class="card-name">رول السجق الكلاسيكي</div><div class="card-desc">سجق بالأعشاب ملفوف في ٦٤ طبقة من عجينة البف ومطلي ببيض وسمسم.</div><div class="card-footer"><div class="card-price">٥٠ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/veggie_puff_1783824617665.png" alt="بف الثلاث جبن" class="card-img" loading="lazy" style="filter:contrast(1.1) saturate(0.9)"/><div class="card-img-overlay"></div><span class="badge badge-veg">نباتي</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(١١١)</span></div><div class="card-name">بف الثلاث جبن</div><div class="card-desc">موزاريلا وشيدر وجبنة كريمية ممزوجة ملفوفة في طبقات رقيقة من الفيلو.</div><div class="card-footer"><div class="card-price">٥٨ جنيه <span>/ قطعة</span></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-separator"></div>
+
+<!-- المشروبات -->
+<div id="drinks"></div>
+<div class="menu-section">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg></div>
+    <h2 class="section-title">المشروبات المميزة</h2>
+    <div class="section-divider"><div class="section-divider-dot"></div></div>
+  </div>
+  <div class="drinks-grid">
+    <div class="drink-card"><div class="drink-img-wrap"><img src="images/cocktail_drink_1783824604853.png" alt="باشن بانش" class="drink-img" loading="lazy"/><div class="drink-img-overlay"></div></div><div class="drink-name">باشن بانش</div><div class="drink-desc">مانجو وباشن فروت وماء الزهر – انتعاش مثلج</div><div class="drink-price">٤٥ جنيه</div></div>
+    <div class="drink-card"><div class="drink-img-wrap"><img src="images/cocktail_drink_1783824604853.png" alt="ليمونادة اللاونج" class="drink-img" loading="lazy" style="filter:hue-rotate(60deg)"/><div class="drink-img-overlay"></div></div><div class="drink-name">ليمونادة اللاونج</div><div class="drink-desc">حمضيات طازجة مع نعناع وقطعة زنجبيل</div><div class="drink-price">٤٠ جنيه</div></div>
+    <div class="drink-card"><div class="drink-img-wrap"><img src="images/cocktail_drink_1783824604853.png" alt="كركديه بارد" class="drink-img" loading="lazy" style="filter:hue-rotate(280deg) saturate(1.5)"/><div class="drink-img-overlay"></div></div><div class="drink-name">كركديه بارد</div><div class="drink-desc">كركديه مصري مثلج مع ماء الورد وقشر الليمون</div><div class="drink-price">٤٢ جنيه</div></div>
+    <div class="drink-card"><div class="drink-img-wrap"><img src="images/cocktail_drink_1783824604853.png" alt="ميلك شيك الفانيليا" class="drink-img" loading="lazy" style="filter:grayscale(0.5) sepia(0.4)"/><div class="drink-img-overlay"></div></div><div class="drink-name">ميلك شيك الفانيليا</div><div class="drink-desc">ميلك شيك كثيف كريمي مع فانيليا مدغشقر وكريمة مخفوقة</div><div class="drink-price">٥٥ جنيه</div></div>
+    <div class="drink-card"><div class="drink-img-wrap"><img src="images/cocktail_drink_1783824604853.png" alt="كولد برو كراميل" class="drink-img" loading="lazy" style="filter:brightness(0.6) sepia(0.7)"/><div class="drink-img-overlay"></div></div><div class="drink-name">كولد برو كراميل</div><div class="drink-desc">قهوة منقوعة ببطء على الثلج مع كراميل ملح البحر</div><div class="drink-price">٥٠ جنيه</div></div>
+    <div class="drink-card"><div class="drink-img-wrap"><img src="images/cocktail_drink_1783824604853.png" alt="سموذي التوت" class="drink-img" loading="lazy" style="filter:hue-rotate(200deg) saturate(1.8)"/><div class="drink-img-overlay"></div></div><div class="drink-name">سموذي التوت</div><div class="drink-desc">بلوبيري وفراولة وتوت أحمر مع زبادي يوناني</div><div class="drink-price">٥٢ جنيه</div></div>
+    <div class="drink-card"><div class="drink-img-wrap"><img src="images/cocktail_drink_1783824604853.png" alt="موهيتو نعناع" class="drink-img" loading="lazy" style="filter:hue-rotate(120deg) saturate(1.3)"/><div class="drink-img-overlay"></div></div><div class="drink-name">موهيتو نعناع</div><div class="drink-desc">نعناع مسحوق وليمون وماء فوار ورشة قصب السكر</div><div class="drink-price">٤٥ جنيه</div></div>
+    <div class="drink-card"><div class="drink-img-wrap"><img src="images/cocktail_drink_1783824604853.png" alt="شوكولاتة ساخنة" class="drink-img" loading="lazy" style="filter:brightness(0.4) saturate(1.8)"/><div class="drink-img-overlay"></div></div><div class="drink-name">شوكولاتة داكنة ساخنة</div><div class="drink-desc">شوكولاتة بلجيكية ٧٢٪ مذابة مع حليب مبخر ورشة قرفة</div><div class="drink-price">٥٥ جنيه</div></div>
+  </div>
+</div>
+
+<div class="section-separator"></div>
+
+<!-- الحلويات -->
+<div id="desserts"></div>
+<div class="menu-section">
+  <div class="section-header">
+    <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M18.5 3c-1.61 0-3.068.864-3.975 2.169C13.713 4.089 12.404 3.5 11 3.5 8.51 3.5 6.5 5.51 6.5 8c0 .73.19 1.42.51 2.02C4.72 10.2 3 11.97 3 14.17 3 16.83 5.17 19 7.83 19H19c2.21 0 4-1.79 4-4 0-1.82-1.22-3.36-2.88-3.83C20.34 10.5 21 9.34 21 8c0-2.76-1.12-5-2.5-5z"/></svg></div>
+    <h2 class="section-title">نهايات حلوة</h2>
+    <div class="section-divider"><div class="section-divider-dot"></div></div>
+  </div>
+  <div class="cards-grid">
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/chocolate_dessert_1783824624869.png" alt="كيكة الشوكولاتة البركانية" class="card-img" loading="lazy"/><div class="card-img-overlay"></div><span class="badge badge-popular">الأكثر طلباً</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(٣٩٤)</span></div><div class="card-name">كيكة الشوكولاتة البركانية</div><div class="card-desc">فوندان شوكولاتة داكنة دافئ بقلب سائل مع آيس كريم الفانيليا.</div><div class="card-footer"><div class="card-price">٧٥ جنيه</div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/chocolate_dessert_1783824624869.png" alt="تارت الكراميل المملح" class="card-img" loading="lazy" style="filter:hue-rotate(30deg) brightness(1.1)"/><div class="card-img-overlay"></div><span class="badge badge-new">جديد</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(١٠٢)</span></div><div class="card-name">تارت الكراميل المملح</div><div class="card-desc">قاعدة عجينة بالزبدة مملوءة بكاسترد كراميل حريري ورشة ملح البحر.</div><div class="card-footer"><div class="card-price">٦٥ جنيه</div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/chocolate_dessert_1783824624869.png" alt="تشيز كيك ماء الزهر" class="card-img" loading="lazy" style="filter:sepia(0.4) saturate(1.5)"/><div class="card-img-overlay"></div></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(٨٧)</span></div><div class="card-name">تشيز كيك ماء الزهر</div><div class="card-desc">تشيز كيك نيويورك كريمي منقوع بماء الزهر مع صلصة الفاكهة.</div><div class="card-footer"><div class="card-price">٧٠ جنيه</div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/chocolate_dessert_1783824624869.png" alt="بقلاوة الفستق" class="card-img" loading="lazy" style="filter:hue-rotate(-30deg) brightness(0.9)"/><div class="card-img-overlay"></div><span class="badge badge-popular">محبوبة</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(٢٦٧)</span></div><div class="card-name">بقلاوة الفستق</div><div class="card-desc">فيلو مقرمش بطبقات مع الفستق وشراب العسل ونفحة من ماء الورد.</div><div class="card-footer"><div class="card-price">٥٥ جنيه</div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/chocolate_dessert_1783824624869.png" alt="كريم بروليه الكلاسيكي" class="card-img" loading="lazy" style="filter:brightness(1.15) contrast(1.1) sepia(0.2)"/><div class="card-img-overlay"></div></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">(١١٩)</span></div><div class="card-name">كريم بروليه الكلاسيكي</div><div class="card-desc">كاسترد فانيليا حريري تحت قبة سكر مكرمل مقرمشة. أناقة خالصة.</div><div class="card-footer"><div class="card-price">٦٨ جنيه</div></div></div>
+    </div>
+    <div class="menu-card">
+      <div class="card-img-wrap"><img src="images/chocolate_dessert_1783824624869.png" alt="بف كروسان نوتيلا" class="card-img" loading="lazy" style="filter:brightness(0.8) saturate(2)"/><div class="card-img-overlay"></div><span class="badge badge-new">جديد</span></div>
+      <div class="card-body"><div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">(٢٠٣)</span></div><div class="card-name">بف كروسان نوتيلا</div><div class="card-desc">عجينة البف المميزة محشوة بنوتيلا دافئة وبندق مطحون. لذة لا تقاوم.</div><div class="card-footer"><div class="card-price">٥٩ جنيه</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- الفوتر -->
+<footer class="footer">
+  <img src="images/logo.jpg" alt="باي آند باف لاونج" class="footer-logo" />
+  <p class="footer-tagline">طازج من الفرن، مقدم بحب</p>
+  <p class="footer-sub">لاونج</p>
+
+  <div class="social-row">
+    <a href="#" class="social-btn ig" title="إنستغرام" aria-label="إنستغرام">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+    </a>
+    <a href="#" class="social-btn fb" title="فيسبوك" aria-label="فيسبوك">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="#" class="social-btn tt" title="تيك توك" aria-label="تيك توك">
+      <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+    </a>
+    <a href="#" class="social-btn wa" title="واتساب" aria-label="واتساب">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <div class="footer-info">
+    <div class="footer-info-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>القاهرة، مصر</div>
+    <div class="footer-info-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>يومياً ١٠ ص – ١١ م</div>
+    <div class="footer-info-item"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>٠١٠٠ ٠٠٠ ٠٠٠٠</div>
+  </div>
+  <p class="footer-copy">© ٢٠٢٥ باي آند باف لاونج. جميع الحقوق محفوظة.</p>
+  <div class="powered-by">
+    <span class="powered-by-text">مشغّل بواسطة</span>
+    <img src="images/sahla-logo.jpg" alt="سهلة" class="powered-by-logo" />
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
